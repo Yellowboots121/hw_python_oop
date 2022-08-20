@@ -49,8 +49,8 @@ class Training:
     def get_spent_calories(self) -> float:
         """Получить количество затраченных калорий."""
         raise NotImplementedError(
-                'Определите get_spent_calories() в %s.'
-                % (self.__class__.__name__))
+            'Определите get_spent_calories() в %s.'
+            % (self.__class__.__name__))
 
     def show_training_info(self) -> InfoMessage:
         """Вернуть информационное сообщение о выполненной тренировке."""
@@ -133,9 +133,8 @@ class Swimming(Training):
 
     def get_spent_calories(self) -> float:
         """Получить количество затраченных калорий при плавании."""
-        swim_colories = ((self.get_mean_speed() + self.COEFF_CALORIE_5)
-                         * self.COEFF_CALORIE_6 * self.weight)
-        return swim_colories
+        return ((self.get_mean_speed() + self.COEFF_CALORIE_5)
+                * self.COEFF_CALORIE_6 * self.weight)
 
 
 def read_package(workout_type: str, data: list) -> Training:
@@ -161,7 +160,7 @@ def main(training: Training) -> None:
         info = training.show_training_info()
         print(info.get_message())
     except AttributeError:
-        return None
+        return
 
 
 if __name__ == '__main__':
